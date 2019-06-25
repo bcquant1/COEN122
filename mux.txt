@@ -1,0 +1,39 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/03/2019 05:29:11 PM
+// Design Name: 
+// Module Name: mux
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module mux(A,B,C,D,sel,out);
+input A,B,C,D;
+input [1:0] sel;
+output reg out;
+
+always@(A,B,C,D,sel)
+begin
+    if (sel == 2'b00)
+        out = A;
+    if (sel == 2'b01)
+        out = B;
+    if (sel == 2'b10)
+        out = C;
+    if (sel == 2'b11)
+        out = D;
+end
+endmodule
