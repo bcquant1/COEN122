@@ -1,0 +1,80 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/08/2019 05:31:02 PM
+// Design Name: 
+// Module Name: IDEX
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module IDEX(clock, regwrt, MemtoReg, PCtoReg, BranchN, BranchZ, ALUop, MemRd, MemWrt, jump, jumpmem, rs, rt,rd, adder, regwrt_out, MemtoReg_out, PCtoReg_out, BranchN_out, BranchZ_out, ALUop_out, MemRd_out, MemWrt_out, jump_out, jumpmem_out, rs_out, rt_out,rd_out, adder_out);
+//inputs
+input clock;
+input regwrt;
+input MemtoReg;
+input PCtoReg;
+input BranchN;
+input BranchZ;
+input [3:0] ALUop;
+input MemRd;
+input MemWrt;
+input jump;
+input jumpmem;
+
+input [31:0] rs;
+input [31:0] rt;
+input [5:0] rd;
+
+input [31:0] adder;
+
+//outputs
+output reg regwrt_out;
+output reg MemtoReg_out;
+output reg PCtoReg_out;
+output reg BranchN_out;
+output reg BranchZ_out;
+output reg [3:0] ALUop_out;
+output reg MemRd_out;
+output reg MemWrt_out;
+output reg jump_out;
+output reg jumpmem_out;
+
+output reg [31:0] rs_out;
+output reg [31:0] rt_out;
+output reg [31:0] rd_out;
+
+output reg [31:0] adder_out;
+
+always@ (posedge clock)
+begin //assigning inputs to the outputs
+    regwrt_out = regwrt;
+    MemtoReg_out = MemtoReg;
+    PCtoReg_out = PCtoReg;
+    BranchN_out = BranchN;
+    BranchZ_out = BranchZ;
+    ALUop_out = ALUop;
+    MemRd_out = MemRd;
+    MemWrt_out = MemWrt;
+    jump_out = jump;
+    jumpmem_out = jumpmem;
+
+    rs_out = rs;
+    rt_out = rt;
+    rd_out = rd;
+
+    adder_out = adder;
+end
+endmodule
