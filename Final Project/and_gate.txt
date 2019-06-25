@@ -1,0 +1,35 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/22/2019 04:25:47 PM
+// Design Name: 
+// Module Name: and_gate
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module and_gate(input1,input2,output1);
+
+input input1, input2;
+output reg output1;
+
+always@(input1,input2,output1)
+begin
+    if (input1 == 0 || input2 == 0)
+        output1 = 0;
+    else if (input1 == 1 && input2 == 1)
+        output1 = 1;
+end        
+endmodule

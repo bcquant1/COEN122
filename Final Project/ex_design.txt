@@ -1,0 +1,54 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/08/2019 02:45:54 PM
+// Design Name: 
+// Module Name: ex_design
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module ex_design(dataOut_in, ALUOut_in, rdOut_in, PCOut_in, nFlag_in,zFlag_in, branchN_in, branchZ_in, jump_in, jumpMem_in, PCtoReg_in, MemtoFlag_in,RegWrite_in,dataOut_out, ALUOut_out,
+rdOut_out, PCOut_out, branchN_out, branchZ_out, jump_out, jumpMem_out, PCtoReg_out, MemtoFlag_out,RegWrite_out,nFlag_out, zFlag_out, clock);
+input [31:0] dataOut_in;
+input [31:0] ALUOut_in;
+input [5:0] rdOut_in;
+input [31:0] PCOut_in;
+input nFlag_in, zFlag_in,branchN_in, branchZ_in, jump_in, jumpMem_in, PCtoReg_in, MemtoFlag_in,RegWrite_in,clock;
+output reg [31:0] dataOut_out;
+output reg [31:0] ALUOut_out;
+output reg [5:0] rdOut_out;
+output reg [31:0] PCOut_out;
+output reg nFlag_out, zFlag_out,branchN_out, branchZ_out, jump_out, jumpMem_out, PCtoReg_out, MemtoFlag_out,RegWrite_out;
+//setting all the inputs and outputs
+
+always@ (negedge clock)
+begin
+    nFlag_out = nFlag_in;
+    zFlag_out = zFlag_in;
+    rdOut_out = rdOut_in;
+    PCOut_out = PCOut_in;
+    dataOut_out = dataOut_in;
+    ALUOut_out = ALUOut_in;
+    branchN_out = branchN_in;
+    branchZ_out = branchZ_in;
+    jump_out = jump_in;
+    jumpMem_out = jumpMem_in;
+    PCtoReg_out = PCtoReg_in;
+    MemtoFlag_out = MemtoFlag_in;
+    RegWrite_out = RegWrite_in;
+end
+//making sure that every output is set to the value of its input
+endmodule

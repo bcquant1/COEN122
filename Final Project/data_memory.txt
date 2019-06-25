@@ -1,0 +1,38 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/24/2019 02:55:59 PM
+// Design Name: 
+// Module Name: data_memory
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module data_memory(address,in,clock,read,write,out);
+    reg[31:0]data[65535:0];
+    input [15:0] address;
+    input [31:0] in;
+    input clock, read, write;
+    output reg [31:0] out;
+    
+    always@ (posedge clock)
+        begin
+            if (read == 1)
+                out = data[address];
+            else if (write == 1)
+                data[address] = in;
+        
+        end   
+endmodule

@@ -1,0 +1,55 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/08/2019 02:27:31 PM
+// Design Name: 
+// Module Name: id_design
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module id_design(rsOut_in, rtOut_in, rd_in, PC_Out_in,memRead_in, memWrite_in, ALU_in, branchN_in, branchZ_in, jump_in, jumpMem_in, PCtoReg_in, MemtoFlag_in,RegWrite_in,
+rsOut_out, rtOut_out, PC_Out_out,memRead_out, memWrite_out, ALU_out, branchN_out, branchZ_out, jump_out, jumpMem_out, PCtoReg_out, MemtoFlag_out,RegWrite_out,rd_out,clock);
+    input [31:0] rsOut_in;
+    input [31:0] rtOut_in;
+    input [5:0] rd_in;
+    input [31:0] PC_Out_in;
+    input memRead_in, memWrite_in, branchN_in, branchZ_in, jump_in, jumpMem_in, PCtoReg_in, MemtoFlag_in, RegWrite_in,clock;
+    input [3:0] ALU_in;
+    output reg [31:0] rsOut_out;
+    output reg [31:0] rtOut_out;
+    output reg [5:0] rd_out;
+    output reg [31:0] PC_Out_out;
+    output reg memRead_out, memWrite_out, branchN_out, branchZ_out, jump_out, jumpMem_out, PCtoReg_out, MemtoFlag_out,RegWrite_out;
+    output reg [3:0] ALU_out;
+    
+    always@(negedge clock)
+    begin
+        rsOut_out = rsOut_in;
+        rtOut_out = rtOut_in;
+        ALU_out = ALU_in;
+        PC_Out_out = PC_Out_in;
+        rd_out = rd_in;
+        memRead_out = memRead_in;
+        memWrite_out = memWrite_in;
+        branchN_out = branchN_in;
+        branchZ_out = branchZ_in;
+        jump_out = jump_in;
+        jumpMem_out = jumpMem_in;
+        PCtoReg_out = PCtoReg_in;
+        MemtoFlag_out = MemtoFlag_in;
+        RegWrite_out = RegWrite_in;
+    end
+endmodule

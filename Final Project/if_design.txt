@@ -1,0 +1,37 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/08/2019 02:17:23 PM
+// Design Name: 
+// Module Name: if_design
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module if_design(instr_in,PC_in,clock, instr_out, PC_out);
+    input [31:0] instr_in;
+    input [7:0] PC_in;
+    input clock;
+    output reg [31:0] instr_out;
+    output reg [7:0] PC_out;
+    
+    always@(negedge clock)
+    
+    begin
+        instr_out = instr_in;
+        PC_out = PC_in;
+    end
+    
+endmodule

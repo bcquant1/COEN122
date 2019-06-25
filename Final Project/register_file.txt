@@ -1,0 +1,42 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/24/2019 02:24:00 PM
+// Design Name: 
+// Module Name: register_file
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module register_file(rs,rt,rd,dataIn,clock,write,rsOut,rtOut);
+    reg[31:0]registers[63:0];
+    input [5:0] rs;
+    input [5:0] rt;
+    input [5:0] rd;
+    input [31:0] dataIn;
+    input clock, write;
+    output reg [31:0] rsOut;
+    output reg [31:0] rtOut;
+    
+    always@(posedge clock)
+    
+    begin
+        rsOut = registers[rs];
+        rtOut = registers[rt];
+        
+        if (write == 1)
+            registers[rd] = dataIn;
+    end
+endmodule
