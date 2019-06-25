@@ -1,0 +1,38 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/24/2019 05:51:35 PM
+// Design Name: 
+// Module Name: instruction
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module instruction(clock, address, inst);
+//initialization of variables
+input clock;
+input [7:0] address;
+output reg [31:0] inst;
+wire[31:0] instructions [255:0];
+
+//manually assigning values 
+assign instructions[100] = 10;
+assign instructions[101] = 11;
+
+always@(posedge clock)
+begin
+    inst = instructions[address]; //reading instructions[i] into the output inst
+end
+endmodule
