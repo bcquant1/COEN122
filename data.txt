@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/24/2019 05:39:02 PM
+// Design Name: 
+// Module Name: data
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module data(clock, write, read, address, datain, dataout);
+//initialization of variables
+input clock;
+input write;
+input read;
+reg [31:0] data[65535:0];
+
+input [31:0] address;
+input [31:0] datain;
+
+output reg [31:0] dataout;
+
+always@(posedge clock)
+begin
+   if (read == 1) //reading data from data[i] to dataout
+        dataout = data[address[15:0]];
+   if (write == 1) //writing data from the address to data[i]
+        data[address[15:0]] = datain;
+end
+
+endmodule
