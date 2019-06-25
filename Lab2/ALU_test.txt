@@ -1,0 +1,74 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/10/2019 05:29:45 PM
+// Design Name: 
+// Module Name: ALU_test
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module ALU_test();
+//initialization of variables
+reg [31:0] A;
+reg [31:0] B;
+reg [3:0] operand;
+wire [31:0] out;
+wire negative;
+wire zero;
+ALU test(A,B,out,operand,negative,zero);
+
+initial
+begin
+    //testing A+B
+    A = 3;
+    B = 4;
+    operand = 4'b0000;
+    #50
+    //testing A+1
+    A = 1;
+    B = 0;
+    operand = 4'b0001;
+    #50
+    //testing ~A+0
+    A = 2;
+    B = 2;
+    operand = 4'b0010;
+    #50
+    //testing ~A+0
+    A = 3;
+    B = 2;
+    operand = 4'b0010;
+    #50
+    //testing A + ~B and testing if the output is 0
+    A = 2;
+    B = 2;
+    operand = 4'b0011;
+    #50
+    //testing A + ~B and testing if the output is negative
+    A = 1;
+    B = 2;
+    operand = 4'b0011;
+    #50
+    //testing the pass 
+     A = 1;
+     B = 2;
+     operand = 4'b0100;
+     #50
+    
+
+$finish;
+end
+endmodule
