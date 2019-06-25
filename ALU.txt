@@ -1,0 +1,58 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04/10/2019 05:13:06 PM
+// Design Name: 
+// Module Name: ALU
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module ALU(A,B,out,operand,negative,zero);
+//initialization of variables
+input [31:0] A;
+input [31:0] B;
+input [3:0] operand;
+output reg[31:0] out;
+output reg negative;
+output reg zero;
+
+always@(A,B,operand)
+begin
+    if (operand == 4'b0000) //checking if operand is A+B
+        out = A + B;
+    if (operand == 4'b0001)//checking if operand is A+1
+        out = A + 1;
+    if (operand == 4'b0010)//checking if operand is ~A+0
+        out = (~A) + 1;
+    if (operand == 4'b0011)//checking if operand is A + ~B
+        out = A + ( (~B) + 1);
+    if (operand == 4'b0100)//checking if operand is A + 0
+        out = A;
+end
+
+always@(out)
+begin
+    //checking flags
+    zero = 0;
+    if (out == 0) 
+        zero = 1;
+        
+    negative = 0;
+    if(out[31] == 1)
+        negative = 1;
+end
+
+endmodule
