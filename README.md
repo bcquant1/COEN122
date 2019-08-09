@@ -1,4 +1,4 @@
-# COEN122
+# COEN 122
 Computer Architecture Class  
 
 Lab 1: 4:1 Multiplexer   
