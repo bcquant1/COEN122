@@ -1,5 +1,5 @@
 # COEN 122
-Computer Architecture Class  
+Computer Architecture Class (Verilog)    
 
 Lab 1: 4:1 Multiplexer   
 Lab 2: Arithmetic Logic Unit  
